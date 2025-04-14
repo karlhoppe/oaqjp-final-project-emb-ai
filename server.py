@@ -16,7 +16,10 @@ def sent_analyzer():
     joy=response['joy']
     sadness=response['sadness']
 
-    return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {}, 'sadness': {}. The dominant emotion is {}.".format(anger, disgust, fear, joy, sadness, dominant_emotion)
+    if dominant_emotion == 'none':
+        return "Invalid text!  Please try again!"
+    else:
+        return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {}, 'sadness': {}. The dominant emotion is {}.".format(anger, disgust, fear, joy, sadness, dominant_emotion)
     
 
 @app.route("/")
